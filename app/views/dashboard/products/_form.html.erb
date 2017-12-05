@@ -79,14 +79,16 @@
         <div class="form-group">
           <%= f.label :start_hour, t("new_product.start_hour") << ":",
             class: "width-150px" %>
-          <%= f.time_select :start_hour, default: @shop.time_open ,
-            minute_step: Settings.minute_step, class: "intime-group" %>
+          <%= f.time_select :start_hour, {default: (@shop.time_open.hour > 0) ?
+            @shop.time_open : Time.now, minute_step: Settings.minute_step},
+            {class: "intime-group"} %>
         </div>
         <div class="form-group">
           <%= f.label :end_hour, t("new_product.end_hour") << ":",
             class: "width-150px" %>
-          <%= f.time_select :end_hour, default: @shop.time_close,
-            minute_step: Settings.minute_step, class: "intime-group" %>
+          <%= f.time_select :end_hour, {default: (@shop.time_open.hour > 0) ?
+            @shop.time_open : Time.now, minute_step: Settings.minute_step},
+            {class: "intime-group"} %>
         </div>
         <div class="form-group">
           <%= f.label :status, t("new_product.status") %>
