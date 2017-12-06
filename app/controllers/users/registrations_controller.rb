@@ -63,12 +63,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    if resource.is_create_by_wsm
-      params.require(:user).permit :chatwork_id, :description, :status, :address
-    else
-      params.require(:user).permit :name, :chatwork_id,
-        :description, :status, :address, :avatar_crop_x, :avatar_crop_y,
-        :avatar_crop_w, :avatar_crop_h, :avatar
-    end
+    params.require(:user).permit :name, :email, :chatwork_id,
+      :description, :status, :address, :avatar_crop_x, :avatar_crop_y,
+      :avatar_crop_w, :avatar_crop_h, :avatar
   end
 end

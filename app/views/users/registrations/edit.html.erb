@@ -21,15 +21,13 @@
                 <% end %>
                 <%= f.label t "edit_user.avatar" %>
                 <%= image_tag @user.avatar.url, class: "avatar avatar-show-user",id: "img_user_avatar" %>
-                <% unless resource.is_create_by_wsm %>
-                  <%= f.file_field :avatar, accept: Settings.pictures.accepted_files,
-                    class: "upload-user-avatar hidden-file", id: "user_avatar" %>
-                  <%= link_to "javascript:void(0)", class: "choose-avatar" do %>
-                    <i class="material-icons">camera_enhance</i>
-                    <label class="margin-bottom-0">
-                      <%= t "update_image_avatar" %>
-                    </label>
-                  <% end %>
+                <%= f.file_field :avatar, accept: Settings.pictures.accepted_files,
+                  class: "upload-user-avatar hidden-file", id: "user_avatar" %>
+                <%= link_to "javascript:void(0)", class: "choose-avatar" do %>
+                  <i class="material-icons">camera_enhance</i>
+                  <label class="margin-bottom-0">
+                    <%= t "update_image_avatar" %>
+                  </label>
                 <% end %>
               </div>
             </div>
@@ -43,11 +41,7 @@
               <% end %>
               <div class="form-group">
                 <%= f.label t "edit_user.name" %>
-                <% if resource.is_create_by_wsm %>
-                  <%= f.text_field :name, disabled: true, class: "form-control"%>
-                <% else %>
-                  <%= f.text_field :name, class: "form-control"%>
-                <% end %>
+                <%= f.text_field :name, class: "form-control" %>
               </div>
               <div class="form-group">
                 <%= f.label t "edit_user.group" %> <i></i><br/>
