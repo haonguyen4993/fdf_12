@@ -86,7 +86,10 @@ class ShopsController < ApplicationController
   end
 
   def check_show_shop
-    unless @shop.domains.include?(@domain) && @shop.active?
+    user_domain = current_user.domains
+    check_shop_domain = @shop.domains & user_domain
+    @domain = check_shop_domain.first
+    unless check_shop_domain.present? && @shop.active?
       flash[:danger] = t "shop_not_allow"
       redirect_to root_path
     end
