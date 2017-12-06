@@ -12,6 +12,7 @@ class Shop < ApplicationRecord
 
   after_update :check_status_shop
   before_destroy :destroy_event
+  before_save :set_domain_for_shop
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :finders]
@@ -239,5 +240,21 @@ class Shop < ApplicationRecord
 
   def send_chatwork_message
     SendShopStatusToChatworkJob.perform_later self
+  end
+
+  def set_domain_for_shop
+    if self.status == "active" && !check_shop_in_domain
+      ShopDomain.create domain_id: get_domain(self.owner).id, shop_id: self.id, status: 1
+    elsif self.status != "active" && check_shop_in_domain
+      self.shop_domains.destroy_all
+    end
+  end
+
+  def check_shop_in_domain
+    return self.shop_domains.present?
+  end
+
+  def get_domain user
+    self.owner.domains.first || Domain.first
   end
 end
