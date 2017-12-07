@@ -103,6 +103,11 @@ csv: "csv"
 shop_member: "member"
 shop_owner: "owner"
 shop_manager: "manager"
+menu:
+  max_item: 50
+menu_setting:
+  min_number: 0
+  max_number: 10
 user:
   max_name: 80
   max_chatwork_id: 50

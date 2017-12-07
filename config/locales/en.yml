@@ -1119,3 +1119,7 @@ en:
   subject_mail_after_create: "Password of the F-Order account"
   chatwork_id_help: "You must enter exactly your chatwork account id."
   shop: "Shop"
+  item: "item "
+  wrong_format: ": Malformed"
+  wrong_length: ": Too long - maximum "
+  wrong_presence: "The item can't empty"
