@@ -38,6 +38,7 @@ class Shop < ApplicationRecord
   has_many :shop_domains, dependent: :destroy
   has_many :domains, through: :shop_domains
   has_many :request_shop_domains
+  has_many :menus
 
   enum status: {pending: 0, active: 1, closed: 2, rejected: 3, blocked: 4}
 

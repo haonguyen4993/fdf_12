@@ -603,12 +603,17 @@ vi:
         update_fail: "Cập nhật thất bại"
         start_time: "Băt đầu lúc: "
         end_time: "Kết thúc lúc: "
+        has_menu: "Thực đơn"
+        no_menu: "Cửa hàng chưa có thực đơn"
       products:
         image: "Hình ảnh"
         name: "Tên"
         price: "Giá"
         actions: "Hành động"
         status : "Trạng thái"
+        main_items: "Mục chính"
+        sub_items: "Mục phụ"
+        bonus_items: "Mục khuyến mãi"
       new:
         title: "Yêu cầu tạo cửa hàng"
       edit:

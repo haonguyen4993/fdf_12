@@ -880,3 +880,53 @@ input:checked + .slider:before {
 .search-order {
   width: 90%;
 }
+.menu{
+  background: #fd680e;
+  border-radius: 10px;
+  padding: 5px 15px 15px 15px;
+  margin-bottom: 30px;
+}
+.menu .tab-content{
+  background: #f8f8f8;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.menu > h2{
+  margin-bottom: 10px;
+  text-align: center;
+  color: #fff;
+}
+.margin-top-ba-muoi{
+  margin-top: 30px;
+}
+.menu ul li.active {
+  background: #f8f8f8;
+  border-top-right-radius: 20px;
+}
+.menu ul li.active:hover {
+  background: #f8f8f8;
+}
+.menu ul li:hover{
+  background: #000;
+  border-top-right-radius: 20px;
+}
+.menu ul li a {
+  background: none !important;
+  border: none !important;
+  font-family: "Source Sans Pro", "Lucida Grande", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #000;
+}
+.menu ul li a:hover {
+  color: #fff;
+}
+.menu ul li.active a {
+  color: #fd680e !important;
+}
+.center-table tr td, .center-table tr th{
+  text-align: center;
+  width: 50%;
+}

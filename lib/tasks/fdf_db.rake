@@ -2,6 +2,67 @@ namespace :fdf_db do
   task create_all: [:create_domain, :create_user, :create_admin, :create_shop, :create_category,
     :create_coupon, :create_product, :create_user_domain] do
   end
+
+  task create_menu: :environment do
+    Menu.create!(
+      kind: 0,
+      shop_id: 1,
+      user_id: 1,
+      item: ["Gà chiên mắm", "Thịt kho tàu", "Sườn nướng", "Cá chim kho nghệ", "Mực nhồi thịt", "Thịt kho"]
+    )
+    Menu.create!(
+      kind: 1,
+      shop_id: 1,
+      user_id: 1,
+      item: ["Rau muống luộc", "Trứng chiên", "Ốp La", "đậu khuôn sốt cà chua", "măng xào thịt", "đậu ve xào thịt"]
+    )
+    Menu.create!(
+      kind: 2,
+      shop_id: 1,
+      user_id: 1,
+      item: ["Nước ngọt", "Trái cây"]
+    )
+  end
+
+  task create_menu_setting: :environment do
+    MenuSetting.create!(
+      price: 15000,
+      menu_id: 1,
+      maximum: 1,
+      coeficient: 0
+    )
+    MenuSetting.create!(
+      price: 15000,
+      menu_id: 2,
+      maximum: 2,
+      coeficient: 2
+    )
+    MenuSetting.create!(
+      price: 15000,
+      menu_id: 3,
+      maximum: 1,
+      coeficient: 0
+    )
+    MenuSetting.create!(
+      price: 20000,
+      menu_id: 1,
+      maximum: 2,
+      coeficient: 0
+    )
+    MenuSetting.create!(
+      price: 20000,
+      menu_id: 2,
+      maximum: 2,
+      coeficient: 2
+    )
+    MenuSetting.create!(
+      price: 20000,
+      menu_id: 3,
+      maximum: 1,
+      coeficient: 0
+    )
+  end
+
   task create_user: :environment do
     User.create!(
       name: "Tran Duc Quoc",

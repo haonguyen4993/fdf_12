@@ -38,6 +38,7 @@ class User < ApplicationRecord
   has_many :user_domains, dependent: :destroy
   has_many :domains, through: :user_domains, dependent: :destroy
   has_many :own_domains, class_name: "Domain", foreign_key: :owner
+  has_many :menus
 
   enum status: {wait: 0, active: 1, blocked: 2}
   mount_uploader :avatar, UserAvatarUploader

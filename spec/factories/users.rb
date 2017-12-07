@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :user do
+    id 1
     name {Faker::Name.name}
     password_confirmation "123456"
     avatar {Faker::Name.name}

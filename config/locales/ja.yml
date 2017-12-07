@@ -556,12 +556,17 @@ ja:
         update_fail: "更新に失敗しました"
         start_time: "始まる: "
         end_time: "で終了する: "
+        has_menu: "Menu"
+        no_menu: "This shop has not Menu."
       products:
         image: "画像/イメージ"
         name: "名前"
         price: "価格"
         actions: "アクト"
         status : "ステート"
+        main_items: "Mục chính"
+        sub_items: "Mục phụ"
+        bonus_items: "Mục khuyến mãi"
       new:
         title: "店を作成が必要です"
       edit:
