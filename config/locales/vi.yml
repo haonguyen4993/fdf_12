@@ -1177,3 +1177,7 @@ vi:
   subject_mail_after_create: "Mật khẩu tài khoản F-Order"
   chatwork_id_help: "Bạn phải nhập chính xác ID của tài khoản chatwork."
   shop: "Cửa hàng"
+  item: "mục "
+  wrong_format: ": Không đúng định dạng"
+  wrong_length: ": Quá dài - tối đa "
+  wrong_presence: "Mục không được để trống"
