@@ -8,5 +8,7 @@ FactoryGirl.define do
     category nil
     shop nil
     user nil
+    start_hour "00:00:00"
+    end_hour "23:59:59"
   end
 end

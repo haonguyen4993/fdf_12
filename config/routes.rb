@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     resources :new_manager_searches, only: :index
     resources :shop_manager_domains
     resources :shop_owners, only: :update
+    resources :menus
   end
   resources :domains do
     resources :products
