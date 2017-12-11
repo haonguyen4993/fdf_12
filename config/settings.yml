@@ -103,8 +103,8 @@ csv: "csv"
 shop_member: "member"
 shop_owner: "owner"
 shop_manager: "manager"
-menu:
-  max_item: 50
+item:
+  max_name: 50
 menu_setting:
   min_number: 0
   max_number: 10

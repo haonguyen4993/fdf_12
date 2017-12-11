@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207010211) do
+ActiveRecord::Schema.define(version: 20171211035559) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(version: 20171207010211) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "menu_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_items_on_menu_id", using: :btree
+  end
+
   create_table "menu_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",      limit: 24
     t.integer  "maximum"
@@ -153,15 +161,17 @@ ActiveRecord::Schema.define(version: 20171207010211) do
     t.integer  "menu_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["menu_id"], name: "index_menu_settings_on_menu_id", using: :btree
   end
 
   create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "kind"
-    t.text     "item",       limit: 65535
     t.integer  "user_id"
     t.integer  "shop_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_menus_on_shop_id", using: :btree
+    t.index ["user_id"], name: "index_menus_on_user_id", using: :btree
   end
 
   create_table "order_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -433,6 +443,10 @@ ActiveRecord::Schema.define(version: 20171207010211) do
   add_foreign_key "coupons", "shops"
   add_foreign_key "coupons", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "items", "menus"
+  add_foreign_key "menu_settings", "menus"
+  add_foreign_key "menus", "shops"
+  add_foreign_key "menus", "users"
   add_foreign_key "order_products", "coupons"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"

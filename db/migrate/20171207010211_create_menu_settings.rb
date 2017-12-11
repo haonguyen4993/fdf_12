@@ -4,7 +4,7 @@ class CreateMenuSettings < ActiveRecord::Migration[5.0]
       t.float :price
       t.integer :maximum
       t.integer :coeficient
-      t.integer :menu_id
+      t.references :menu, foreign_key: true
 
       t.timestamps
     end

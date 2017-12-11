@@ -40,7 +40,7 @@ class Dashboard::ShopsController < BaseDashboardController
       @shop = @shop.decorate
       @products = @shop.products.by_date_newest.page(params[:page])
         .per Settings.common.products_per_page
-      @menus = @shop.menus.group_by {|menu| menu.kind}
+      @menus = Menu.menus_of_shop(@shop.id).group_by {|menu| menu.kind}
       @products_all = @shop.products.all
       if @start_hour.present? and @end_hour.present?
         if compare_time_order @start_hour, @end_hour

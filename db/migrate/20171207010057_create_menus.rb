@@ -3,8 +3,8 @@ class CreateMenus < ActiveRecord::Migration[5.0]
     create_table :menus do |t|
       t.integer :kind
       t.text :item
-      t.integer :user_id
-      t.integer :shop_id
+      t.references :user, foreign_key: true
+      t.references :shop, foreign_key: true
 
       t.timestamps
     end

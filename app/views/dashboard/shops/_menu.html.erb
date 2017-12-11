@@ -7,9 +7,9 @@
       </tr>
     </thead>
     <tbody id="list-shop-optional-products">
-      <% menu.first.item.each do |item| %>
+      <% menu.first.items.each do |item| %>
         <tr>
-          <td><%= item %></td>
+          <td><%= item.name %></td>
           <td>
             <%= link_to t("common.edit_button"), "#", remote: true,
               class: "btn btn-sm btn-primary" %>
