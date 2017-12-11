@@ -7,21 +7,45 @@ namespace :fdf_db do
     Menu.create!(
       kind: 0,
       shop_id: 1,
-      user_id: 1,
-      item: ["Gà chiên mắm", "Thịt kho tàu", "Sườn nướng", "Cá chim kho nghệ", "Mực nhồi thịt", "Thịt kho"]
+      user_id: 1
     )
     Menu.create!(
       kind: 1,
       shop_id: 1,
-      user_id: 1,
-      item: ["Rau muống luộc", "Trứng chiên", "Ốp La", "đậu khuôn sốt cà chua", "măng xào thịt", "đậu ve xào thịt"]
+      user_id: 1
     )
     Menu.create!(
       kind: 2,
       shop_id: 1,
-      user_id: 1,
-      item: ["Nước ngọt", "Trái cây"]
+      user_id: 1
     )
+  end
+
+
+  task create_item: :environment do
+    main_item = ["Gà chiên mắm", "Thịt kho tàu", "Sườn nướng", "Cá chim kho nghệ", "Mực nhồi thịt", "Thịt kho"]
+    sub_item = ["Rau muống luộc", "Trứng chiên", "Ốp La", "đậu khuôn sốt cà chua", "măng xào thịt", "đậu ve xào thịt"]
+    bonus_item = ["Nước ngọt", "Trái cây"]
+    main_item.each do |name|
+      Item.create!(
+        name: name,
+        menu_id: 1
+      )
+    end
+
+    sub_item.each do |name|
+      Item.create!(
+        name: name,
+        menu_id: 2
+      )
+    end
+
+    bonus_item.each do |name|
+      Item.create!(
+        name: name,
+        menu_id: 3
+      )
+    end
   end
 
   task create_menu_setting: :environment do
