@@ -341,6 +341,7 @@ en:
         update_product: "Update product successfully!"
         updated_shop: "Update shop successfully!"
         delete_product: "Delete product successfully!"
+        delete_item: "Delete item successfully!"
         create_request: "Created request successfully!"
     danger:
       load_order: "Cannot find order. plz choose order! "
@@ -361,9 +362,14 @@ en:
         update_product: "Update product failed!"
         updated_shop: "Update shop failed!"
         delete_product: "Delete product failed!"
+        delete_item: "Delete item failed!"
         order_product: "Product was ordered"
         add_product_failed: "Can not add this product into domain"
         create_request: "Created request failed!"
+        menu:
+          not_found: "Cannot find menu"
+        item:
+          not_found: "Cannot find item"
     warning:
       admin:
         deleted_category: "Cannot delete because this category has products!"
@@ -1128,3 +1134,4 @@ en:
   wrong_format: ": Malformed"
   wrong_length: ": Too long - maximum "
   wrong_presence: "The item can't empty"
+  confirm_delete_item: "Do you really want to delete item %{item_name}?"

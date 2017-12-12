@@ -55,12 +55,14 @@ Rails.application.routes.draw do
       resources :user_orders, only: [:index, :show]
       resources :group_orders, only: [:index, :show]
       resources :time_approve_orders, only: [:index, :show]
+      resources :menus do
+        resources :items
+      end
     end
     resources :statistics
     resources :new_manager_searches, only: :index
     resources :shop_manager_domains
     resources :shop_owners, only: :update
-    resources :menus
   end
   resources :domains do
     resources :products

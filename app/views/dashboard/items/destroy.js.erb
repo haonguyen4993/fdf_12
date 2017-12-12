@@ -1,0 +1,8 @@
+<% if @success %>
+  $.growl.notice({title: '<%= t "common.notifications" %>',
+    message: '<%= t "flash.success.dashboard.delete_item" %>'});
+  $('.item-id-<%= @item.id %>').remove();
+<% else %>
+  $.growl.error({title: '<%= t "common.notifications" %>',
+    message: '<%= t "flash.danger.dashboard.delete_item" %>'});
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211035559) do
+ActiveRecord::Schema.define(version: 20171211075336) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 20171211035559) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
     t.index ["menu_id"], name: "index_items_on_menu_id", using: :btree
   end
 

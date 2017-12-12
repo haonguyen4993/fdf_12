@@ -385,6 +385,7 @@ vi:
         update_product: "Sản phẩm cập nhật thành công!"
         updated_shop: "Lưu cửa hàng thành công"
         delete_product: "Sản phẩm đã được xóa!"
+        delete_item: "Mục đã được xóa!"
         create_request: "Yêu cầu đã được thêm!"
     danger:
       load_order: "Không thể tìm thấy đơn hàng. Vui lòng chọn lại! "
@@ -405,9 +406,14 @@ vi:
         update_product: "Cập nhật thất bại!"
         updated_shop: "Cập nhật thất bại!"
         delete_product: "Xóa không thành công!"
+        delete_item: "Xóa không thành công!"
         order_product: "Sản phẩm đã được đặt hàng"
         add_product_failed: "Không thể thêm sản phẩm vào miền này"
         create_request: "Yêu cầu thất bại!"
+        menu:
+          not_found: "Không thể tìm thấy thực đơn"
+        item:
+          not_found: "Không thể tìm thấy mục"
     warning:
       admin:
         deleted_category: "Có sản phẩm bên trong. Không thể xóa!"
@@ -1186,3 +1192,4 @@ vi:
   wrong_format: ": Không đúng định dạng"
   wrong_length: ": Quá dài - tối đa "
   wrong_presence: "Mục không được để trống"
+  confirm_delete_item: "Bạn thật sự muốn xóa mục %{item_name}?"

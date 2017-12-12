@@ -338,6 +338,7 @@ ja:
         update_product: "更新に成功。"
         updated_shop: "変更が保存された。"
         delete_product: "製品は削除されました。"
+        delete_item: "Mục đã được xóa!"
         create_request: "成功"
     danger:
       load_order: "ラインを見つけることができません。選択しなおしてください。"
@@ -357,9 +358,14 @@ ja:
         update_product: "エラー"
         updated_shop: "エラー"
         delete_product: "失敗。"
+        delete_item: "Xóa không thành công!"
         order_product: "製品が発注されている。"
         add_product_failed: "失敗"
         create_request: "失敗"
+        menu:
+          not_found: "Không thể tìm thấy thực đơn"
+        item:
+          not_found: "Không thể tìm thấy mục"
     warning:
       admin:
         deleted_category: "削除できません。"
@@ -1138,3 +1144,4 @@ ja:
   wrong_format: ": Malformed"
   wrong_length: ": Too long - maximum "
   wrong_presence: "The item can't empty"
+  confirm_delete_item: "Bạn thật sự muốn xóa mục %{item_nameƯ?"

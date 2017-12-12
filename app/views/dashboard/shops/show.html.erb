@@ -230,26 +230,22 @@
         <div class="half-width">
           <ul class="nav nav-tabs" role="tablist">
             <li class="active" id="non_list_item">
-              <%= link_to t("dashboard.shops.products.main_items"), "#main_items", data:{toggle: "tab"} %>
+              <%= link_to t("dashboard.shops.products.main_items"), "#main_item", data:{toggle: "tab"} %>
             </li>
             <li id="list_item">
-              <%= link_to t("dashboard.shops.products.sub_items"), "#sub_items", data:{toggle: "tab"} %>
+              <%= link_to t("dashboard.shops.products.sub_items"), "#sub_item", data:{toggle: "tab"} %>
             </li>
             <li id="list_item">
-              <%= link_to t("dashboard.shops.products.bonus_items"), "#bonus_items", data:{toggle: "tab"} %>
+              <%= link_to t("dashboard.shops.products.bonus_items"), "#bonus_item", data:{toggle: "tab"} %>
             </li>
           </ul>
         </div>
         <div class="tab-content">
-          <div class="tab-pane active" id="main_items">
-            <%= render "menu", menu: @menus["main_item"] if @menus["main_item"].any? %>
-          </div>
-          <div class="tab-pane" id="sub_items">
-            <%= render "menu", menu: @menus["sub_item"] if @menus["sub_item"].any? %>
-          </div>
-          <div class="tab-pane" id="bonus_items">
-            <%= render "menu", menu: @menus["bonus_item"] if @menus["bonus_item"].any? %>
-          </div>
+          <% @menus.each_with_index do |menu, index| %>
+            <div class="tab-pane <%= "active" if index.zero? %>" id="<%= menu.kind %>">
+              <%= render "menu", menu: menu if menu.items.any? %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
