@@ -1,0 +1,9 @@
+<% provide :title, t(".title") %>
+<% provide :submit_button, t("common.save_button") %>
+var html = '<div class="modal-dialog modal-item"><div class="modal-content">'
+  + '<div class="modal-header modal_header">'
+  + '<button class="close" data-dismiss="modal">&times;</button>'
+  + '<h4 class="modal-title modal_text_header"><%= yield(:title) %></h4>'
+  + '</div><div class="modal-body"><%= j render "form" %></div></div></div>';
+$('#new-edit-item-modal').html(html);
+$('#new-edit-item-modal').modal('show');

@@ -1,0 +1,19 @@
+<div class="row item_form">
+  <%= form_for [:dashboard, @shop, @menu, @item], authenticity_token: true, remote: true  do |f| %>
+    <div class="form-group">
+      <%= f.label :name do %>
+        <%= t "new_item.name" %>
+        <span class="color-red">*</span>
+      <% end %>
+      <%= f.text_field :name, placeholder: t(".item_name"),
+        class: "form-control" %>
+    </div>
+    <div class="col-xs-12 button-group-form">
+      <%= link_to t("common.back_button"), :back,
+        class: "btn btn-default btn-back-to-shop form-button" %>
+      <%= f.submit yield(:submit_button),
+        class: "btn btn_add_to_cart btn-add padding-left-right-10 form-button" %>
+    </div>
+  <% end %>
+</div>
+ <%= javascript_include_tag "jquery.remotipart" %>

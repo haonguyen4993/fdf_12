@@ -1,0 +1,7 @@
+<% if @success %>
+  $('#new-edit-item-modal').modal('hide');
+  $('.item-id-<%= @item.id %>').replaceWith('<%= j render [@item] %>')
+  $.growl.notice({title: '<%= t "common.notifications" %>', message: '<%= t "flash.success.dashboard.edit_item" %>'});
+<% else %>
+  $.growl.error({title: '<%= t "common.notifications" %>', message: '<%= t "flash.danger.dashboard.edit_item" %>'});
+<% end %>
