@@ -70,4 +70,58 @@ RSpec.describe Dashboard::ItemsController, type: :controller do
       end
     end
   end
+
+  describe "#new" do
+    context "new success" do
+      before {get :new, params: {shop_id: shop, menu_id: menu}, xhr: true}
+      it "assigns @item" do
+        expect(assigns(:item)) == menu.items.build
+      end
+      it "assigns @shop" do
+        expect(assigns(:shop)).to eq Shop.shop_include_menus(shop.id).first
+      end
+    end
+
+    context "edit fail" do
+      before do
+        get :new, params: {shop_id: shop, menu_id: 999}, xhr: true
+      end
+      it "assigns @menu" do
+        expect(assigns(:menu)).to eq nil
+      end
+    end
+  end
+
+  describe "#create" do
+    context "create success" do
+      before do
+        post :create, params: {shop_id: shop, menu_id: menu,
+          item:{name: "new name1\r\nnew name2\r\n"}}, xhr: true
+      end
+      it "assigns @items" do
+        expect(assigns(:items).map(&:name)).to eq ["new name1", "new name2"]
+      end
+      it "assigns @success" do
+        expect(assigns(:success)).to eq true
+      end
+    end
+
+    context "create fail" do
+      before do
+        post :create, params: {shop_id: shop, menu_id: menu,
+          item:{name: "new name1\r\n2new name\r\n"}}, xhr: true
+      end
+      it "assigns @items" do
+        expect(assigns(:items).map(&:name)).to eq ["new name1"]
+      end
+      it "assigns @success" do
+        expect(assigns(:success)).to eq false
+      end
+      it "shop invalid" do
+        post :create, params: {shop_id: 999, menu_id: menu,
+          item:{name: "new name1\r\nnew name2\r\n"}}, xhr: true
+        expect(assigns(:shop)).to eq nil
+      end
+    end
+  end
 end

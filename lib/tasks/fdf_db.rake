@@ -3,25 +3,6 @@ namespace :fdf_db do
     :create_coupon, :create_product, :create_user_domain] do
   end
 
-  task create_menu: :environment do
-    Menu.create!(
-      kind: 0,
-      shop_id: 1,
-      user_id: 1
-    )
-    Menu.create!(
-      kind: 1,
-      shop_id: 1,
-      user_id: 1
-    )
-    Menu.create!(
-      kind: 2,
-      shop_id: 1,
-      user_id: 1
-    )
-  end
-
-
   task create_item: :environment do
     main_item = ["Gà chiên mắm", "Thịt kho tàu", "Sườn nướng", "Cá chim kho nghệ", "Mực nhồi thịt", "Thịt kho"]
     sub_item = ["Rau muống luộc", "Trứng chiên", "Ốp La", "đậu khuôn sốt cà chua", "măng xào thịt", "đậu ve xào thịt"]

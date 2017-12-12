@@ -1,13 +1,33 @@
 class Dashboard::ItemsController < BaseDashboardController
   before_action :load_shop
   before_action :load_menu
-  before_action :load_item
+  before_action :load_item, except: [:new, :create]
 
   def destroy
     @success = false
     if @item.destroy
       @success = true
     end
+  end
+
+  def new
+    @item = @menu.items.build
+    @shop = Shop.shop_include_menus(@shop.id).first
+  end
+
+  def create
+    @success = false
+    if params[:item][:name].present?
+      @items = []
+      Item.transaction do
+        params[:item][:name].split("\r\n").each do |name|
+          @items << @menu.items.create!(name: name)
+        end
+        @success = true
+      end
+    end
+  rescue
+    @success = false
   end
 
   def edit;end
@@ -49,6 +69,6 @@ class Dashboard::ItemsController < BaseDashboardController
   end
 
   def item_params
-    params.require(:item).permit :id, :name
+    params.require(:item).permit :id, :name, :menu_id
   end
 end

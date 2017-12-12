@@ -184,3 +184,4 @@ max_rate_point: 5
 min_rate_point: 0
 type_follow: "follow"
 type_unfollow: "unfollow"
+row_count_of_text_area: 15

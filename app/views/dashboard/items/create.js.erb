@@ -1,0 +1,11 @@
+<% if @success %>
+  $('#new-edit-item-modal').modal('hide');
+  $('#<%= @menu.kind%> .item-list-in-menu').append('<%= j render @items %>');
+  $.growl.notice({title: '<%= t "common.notifications" %>', message: '<%= t "flash.success.dashboard.update_menu" %>'});
+  $('.nav-tabs li.active').removeClass('active');
+  $('.box-product-list .tab-pane.active').removeClass('active');
+  $('a[href="#<%= @menu.kind %>"]').closest('li').addClass('active');
+  $('#<%= @menu.kind %>').addClass('active');
+<% else %>
+  $.growl.error({title: '<%= t "common.notifications" %>', message: '<%= t "flash.danger.dashboard.update_menu" %>'});
+<% end %>

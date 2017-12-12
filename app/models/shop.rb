@@ -47,6 +47,7 @@ class Shop < ApplicationRecord
   after_create :create_shop_manager, :send_notification_after_requested
   after_update :send_notification_after_confirmed
   after_update_commit :send_notification
+  after_create :create_menus
 
   VALID_NAME_REGEX = /\A[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬ
     ẮẰẲẴẶẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴ
@@ -89,6 +90,7 @@ class Shop < ApplicationRecord
 
   scope :list_shops, -> ids {where id: ids}
 
+  scope :shop_include_menus, -> shop_id {where(id: shop_id).includes(:menus)}
   def destroy_event
     Event.by_model_and_id(Shop.name, self.id).destroy_all
     Event.by_model_and_id(OrderProduct.name, self.id).destroy_all
@@ -257,5 +259,9 @@ class Shop < ApplicationRecord
 
   def get_domain user
     self.owner.domains.first || Domain.first
+  end
+
+  def create_menus
+    self.menus.kinds.each {|kind| self.menus.create kind: kind[0]}
   end
 end
