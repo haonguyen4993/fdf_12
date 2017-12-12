@@ -27,4 +27,47 @@ RSpec.describe Dashboard::ItemsController, type: :controller do
       end
     end
   end
+  describe "#edit" do
+    context "edit success" do
+      before {get :edit, params: {shop_id: shop, menu_id: menu, id: item}, xhr: true}
+      it "assigns @item" do
+        expect(assigns(:item)).to eq item
+      end
+    end
+
+    context "edit fail" do
+      before do
+        get :edit, params: {shop_id: shop, menu_id: menu, id: 5}, xhr: true
+      end
+      it "assigns @item" do
+        expect(assigns(:item)).to eq nil
+      end
+    end
+  end
+
+  describe "#update" do
+    context "update success" do
+      before do
+        post :update, params: {shop_id: shop, menu_id: menu, id: item, item:{name: "new name"}}, xhr: true
+      end
+      it "assigns @item" do
+        expect(assigns(:item).name).to eq "new name"
+      end
+      it "assigns @success" do
+        expect(assigns(:success)).to eq true
+      end
+    end
+
+    context "update fail" do
+      before do
+        post :update, params: {shop_id: shop, menu_id: menu, id: item, item:{name: ""}}, xhr: true
+      end
+      it "assigns @item" do
+        expect(assigns(:item)).to eq item
+      end
+      it "assigns @success" do
+        expect(assigns(:success)).to eq false
+      end
+    end
+  end
 end

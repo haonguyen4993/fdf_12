@@ -340,6 +340,7 @@ ja:
         delete_product: "製品は削除されました。"
         delete_item: "Mục đã được xóa!"
         create_request: "成功"
+        edit_item: "Edit item successfully!"
     danger:
       load_order: "ラインを見つけることができません。選択しなおしてください。"
       load_items: "製品が見つけることができません。"
@@ -362,6 +363,7 @@ ja:
         order_product: "製品が発注されている。"
         add_product_failed: "失敗"
         create_request: "失敗"
+        edit_item: "エラー"
         menu:
           not_found: "Không thể tìm thấy thực đơn"
         item:
@@ -551,6 +553,9 @@ ja:
         price: "価格"
         total: "合計"
         product_name: "プロダクト: "
+    items:
+      form:
+        item_name: "Name"
     shops:
       show:
         edit: "編集 "
@@ -880,6 +885,8 @@ ja:
     status: "状態"
     tag: "ラベル"
     image: "絵"
+  new_item:
+    name: "Name"
   log_in:
     email: "メール"
     password: "パスワード"

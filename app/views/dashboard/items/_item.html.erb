@@ -1,7 +1,8 @@
 <tr class="item-id-<%= item.id%>">
   <td><%= item.name %></td>
   <td>
-    <%= link_to t("common.edit_button"), "#", remote: true, class: "btn btn-sm btn-primary" %>
+    <%= link_to t("common.edit_button"), edit_dashboard_shop_menu_item_path(item.menu.shop, item.menu, item),
+      remote: true, class: "btn btn-sm btn-primary" %>
     <%= link_to t("common.delete_button"), dashboard_shop_menu_item_path(item.menu.shop, item.menu, item),
       data: {destroy: "item", "item-name": item.name}, class: "btn btn-sm btn-danger" %>
   </td>

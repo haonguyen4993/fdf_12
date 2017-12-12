@@ -343,6 +343,7 @@ en:
         delete_product: "Delete product successfully!"
         delete_item: "Delete item successfully!"
         create_request: "Created request successfully!"
+        edit_item: "Edit item successfully!"
     danger:
       load_order: "Cannot find order. plz choose order! "
       load_items: "Cannot find order items"
@@ -366,6 +367,7 @@ en:
         order_product: "Product was ordered"
         add_product_failed: "Can not add this product into domain"
         create_request: "Created request failed!"
+        edit_item: "Edit item failed!"
         menu:
           not_found: "Cannot find menu"
         item:
@@ -557,6 +559,9 @@ en:
         price: "Price"
         total: "Total"
         product_name: "Product: "
+    items:
+      form:
+        item_name: "Name"
     shops:
       show:
         edit: "Edit shop"
@@ -889,6 +894,8 @@ en:
     status: "Trạng thái "
     tag: "Nhãn"
     image: "Hình ảnh"
+  new_item:
+    name: "Name"
   log_in:
     email: "Email"
     password: "Password"

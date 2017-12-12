@@ -387,6 +387,7 @@ vi:
         delete_product: "Sản phẩm đã được xóa!"
         delete_item: "Mục đã được xóa!"
         create_request: "Yêu cầu đã được thêm!"
+        edit_item: "Mục cập nhật thành công!"
     danger:
       load_order: "Không thể tìm thấy đơn hàng. Vui lòng chọn lại! "
       load_items: "Không tìm thấy sản phẩm"
@@ -410,6 +411,7 @@ vi:
         order_product: "Sản phẩm đã được đặt hàng"
         add_product_failed: "Không thể thêm sản phẩm vào miền này"
         create_request: "Yêu cầu thất bại!"
+        edit_item: "Có lỗi xảy ra trong quá trình thay đổi!"
         menu:
           not_found: "Không thể tìm thấy thực đơn"
         item:
@@ -598,6 +600,9 @@ vi:
         price: "Giá"
         total: "Tổng cộng"
         product_name: "Sản phẩm: "
+    items:
+      form:
+        item_name: "Tên"
     shops:
       show:
         edit: "Chỉnh sửa "
@@ -929,6 +934,8 @@ vi:
     status: "Trạng thái "
     tag: "Nhãn"
     image: "Hình ảnh"
+  new_item:
+    name: "Tên"
   log_in:
     email: "Email"
     password: "Mật khẩu"
