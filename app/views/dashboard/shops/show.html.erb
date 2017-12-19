@@ -219,36 +219,31 @@
 <div class="block-shop-header clearfix">
   <div class="margin-top-ba-muoi menu">
     <h2 class="section_title margin_right_15px ">
-      <% if @menus.any? %>
-        <%= t ".has_menu" %>
-      <% else %>
-        <%= t ".no_menu" %>
-      <% end %>
-    </h2>
-    <% if @menus.any? %>
-      <div class="box-product-list">
-        <div class="half-width">
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="active" id="non_list_item">
-              <%= link_to t("dashboard.shops.products.main_items"), "#main_item", data:{toggle: "tab"} %>
-            </li>
-            <li id="list_item">
-              <%= link_to t("dashboard.shops.products.sub_items"), "#sub_item", data:{toggle: "tab"} %>
-            </li>
-            <li id="list_item">
-              <%= link_to t("dashboard.shops.products.bonus_items"), "#bonus_item", data:{toggle: "tab"} %>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-content">
-          <% @menus.each_with_index do |menu, index| %>
-            <div class="tab-pane <%= "active" if index.zero? %>" id="<%= menu.kind %>">
-              <%= render "menu", menu: menu if menu.items.any? %>
-            </div>
-          <% end %>
-        </div>
+      <%= t ".has_menu" %>
+      <div class="btn_view_all_wrapper pull-right">
+        <%= link_to t("create_new_shop"), "javascript:void(0)",
+          class: "btn btn_view_all btn-warning", id: "new-item" %>
       </div>
-    <% end %>
+    </h2>
+    <div class="box-product-list">
+      <div class="half-width">
+        <ul class="nav nav-tabs" role="tablist">
+          <% @menus.each_with_index do |menu, index| %>
+            <li class="<%= "active" if index.zero? %>">
+              <%= link_to t("dashboard.shops.products.#{menu.kind}s"), "##{menu.kind}",
+                data:{menu_id: "#{menu.id}", toggle: "tab", shop_id: "#{@shop.slug}"} %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <% @menus.each_with_index do |menu, index| %>
+          <div class="tab-pane <%= "active" if index.zero? %>" id="<%= menu.kind %>">
+            <%= render "menu", menu: menu if menu.items.any? %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div>
     <div class="search_on_manage_shop text-center">

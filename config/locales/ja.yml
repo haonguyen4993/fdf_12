@@ -341,6 +341,7 @@ ja:
         delete_item: "Mục đã được xóa!"
         create_request: "成功"
         edit_item: "Edit item successfully!"
+        update_menu: "Update menu successfully"
     danger:
       load_order: "ラインを見つけることができません。選択しなおしてください。"
       load_items: "製品が見つけることができません。"
@@ -364,6 +365,7 @@ ja:
         add_product_failed: "失敗"
         create_request: "失敗"
         edit_item: "エラー"
+        update_menu: "Update menu failed"
         menu:
           not_found: "Không thể tìm thấy thực đơn"
         item:
@@ -553,7 +555,12 @@ ja:
         price: "価格"
         total: "合計"
         product_name: "プロダクト: "
+    menus:
+      new:
+        title: "Update menu"
     items:
+      edit:
+        title: "Edit item"
       form:
         item_name: "Name"
     shops:
@@ -887,6 +894,9 @@ ja:
     image: "絵"
   new_item:
     name: "Name"
+  new_menu:
+    kind: "Kind"
+    item_list: "Item list"
   log_in:
     email: "メール"
     password: "パスワード"
@@ -1152,3 +1162,7 @@ ja:
   wrong_length: ": Too long - maximum "
   wrong_presence: "The item can't empty"
   confirm_delete_item: "Bạn thật sự muốn xóa mục %{item_nameƯ?"
+  kinds:
+    main_item: "Main item"
+    sub_item: "Sub item"
+    bonus_item: "Bonus item"

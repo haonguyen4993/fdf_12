@@ -388,6 +388,7 @@ vi:
         delete_item: "Mục đã được xóa!"
         create_request: "Yêu cầu đã được thêm!"
         edit_item: "Mục cập nhật thành công!"
+        update_menu: "Thực đơn cập nhật thành công!"
     danger:
       load_order: "Không thể tìm thấy đơn hàng. Vui lòng chọn lại! "
       load_items: "Không tìm thấy sản phẩm"
@@ -412,6 +413,7 @@ vi:
         add_product_failed: "Không thể thêm sản phẩm vào miền này"
         create_request: "Yêu cầu thất bại!"
         edit_item: "Có lỗi xảy ra trong quá trình thay đổi!"
+        update_menu: "Có lỗi xảy ra trong quá trình thay đổi!"
         menu:
           not_found: "Không thể tìm thấy thực đơn"
         item:
@@ -600,7 +602,12 @@ vi:
         price: "Giá"
         total: "Tổng cộng"
         product_name: "Sản phẩm: "
+    menus:
+      new:
+        title: "Cập nhật thực đơn"
     items:
+      edit:
+        title: "Sửa mục"
       form:
         item_name: "Tên"
     shops:
@@ -936,6 +943,9 @@ vi:
     image: "Hình ảnh"
   new_item:
     name: "Tên"
+  new_menu:
+    kind: "Loại"
+    item_list: "Danh sách mục"
   log_in:
     email: "Email"
     password: "Mật khẩu"
@@ -1200,3 +1210,7 @@ vi:
   wrong_length: ": Quá dài - tối đa "
   wrong_presence: "Mục không được để trống"
   confirm_delete_item: "Bạn thật sự muốn xóa mục %{item_name}?"
+  kinds:
+    main_item: "Mục chính"
+    sub_item: "Mục phụ"
+    bonus_item: "Mục khuyến mãi"
