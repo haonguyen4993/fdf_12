@@ -56,7 +56,8 @@ Rails.application.routes.draw do
       resources :group_orders, only: [:index, :show]
       resources :time_approve_orders, only: [:index, :show]
       resources :menus do
-        resources :items
+        resources :items, only: [:edit, :destroy, :update]
+        resource :item_list, controller: :items, only: [:new, :update, :create, :edit]
       end
     end
     resources :statistics

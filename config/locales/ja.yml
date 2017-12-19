@@ -1166,3 +1166,5 @@ ja:
     main_item: "Main item"
     sub_item: "Sub item"
     bonus_item: "Bonus item"
+  add_new_item_list: "Add new item list"
+  update_new_item_list: "Update new item list"

@@ -10,21 +10,24 @@ namespace :fdf_db do
     main_item.each do |name|
       Item.create!(
         name: name,
-        menu_id: 1
+        menu_id: 1,
+        status: 1
       )
     end
 
     sub_item.each do |name|
       Item.create!(
         name: name,
-        menu_id: 2
+        menu_id: 2,
+        status: 0
       )
     end
 
     bonus_item.each do |name|
       Item.create!(
         name: name,
-        menu_id: 3
+        menu_id: 3,
+        status: 1
       )
     end
   end

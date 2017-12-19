@@ -1214,3 +1214,5 @@ vi:
     main_item: "Mục chính"
     sub_item: "Mục phụ"
     bonus_item: "Mục khuyến mãi"
+  add_new_item_list: "Thêm danh sách mục"
+  update_new_item_list: "Cập nhật danh sách mục"

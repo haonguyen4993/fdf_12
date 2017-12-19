@@ -11,4 +11,5 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: Settings.item.max_name},
     format: {with: VALID_NAME_REGEX}
+  enum status: {active: 0, inactive: 1}
 end

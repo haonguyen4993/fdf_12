@@ -74,15 +74,33 @@ RSpec.describe Dashboard::ItemsController, type: :controller do
   describe "#new" do
     context "new success" do
       before {get :new, params: {shop_id: shop, menu_id: menu}, xhr: true}
-      it "assigns @item" do
-        expect(assigns(:item)) == menu.items.build
+      it "assigns @shop" do
+        expect(assigns(:shop)).to eq Shop.shop_include_menus(shop.id).first
+      end
+      it "assigns @item_list" do
+        expect(assigns(:item_list)) == nil
+      end
+      it "assigns @destroy_all" do
+        expect(assigns(:destroy_all)).to eq nil
+      end
+    end
+
+    context "new success within destroy_all params" do
+      before do
+        get :new, params: {shop_id: shop, menu_id: menu, destroy_all: true}, xhr: true
+      end
+      it "assigns @item_list" do
+        expect(assigns(:item_list)).to eq [item]
+      end
+      it "assigns @destroy_all" do
+        expect(assigns(:destroy_all)).to eq "true"
       end
       it "assigns @shop" do
         expect(assigns(:shop)).to eq Shop.shop_include_menus(shop.id).first
       end
     end
 
-    context "edit fail" do
+    context "new fail" do
       before do
         get :new, params: {shop_id: shop, menu_id: 999}, xhr: true
       end
@@ -95,8 +113,8 @@ RSpec.describe Dashboard::ItemsController, type: :controller do
   describe "#create" do
     context "create success" do
       before do
-        post :create, params: {shop_id: shop, menu_id: menu,
-          item:{name: "new name1\r\nnew name2\r\n"}}, xhr: true
+        item
+        post :create, params: {shop_id: shop, menu_id: menu, item_list: "new name1\r\nnew name2\r\n"}, xhr: true
       end
       it "assigns @items" do
         expect(assigns(:items).map(&:name)).to eq ["new name1", "new name2"]
@@ -104,12 +122,36 @@ RSpec.describe Dashboard::ItemsController, type: :controller do
       it "assigns @success" do
         expect(assigns(:success)).to eq true
       end
+      it "assigns @destroy_all" do
+        expect(assigns(:destroy_all)).to eq nil
+      end
+      it "count item" do
+        expect(Item.all.size).to eq 3
+      end
+    end
+
+    context "create success within destroy all old items" do
+      before do
+        item
+        post :create, params: {shop_id: shop, menu_id: menu, item_list: "new name1\r\nnew name2\r\n", destroy_all: true}, xhr: true
+      end
+      it "assigns @items" do
+        expect(assigns(:items).map(&:name)).to eq ["new name1", "new name2"]
+      end
+      it "assigns @success" do
+        expect(assigns(:success)).to eq true
+      end
+      it "assigns @destroy_all" do
+        expect(assigns(:destroy_all)).to eq "true"
+      end
+      it "count item" do
+        expect(Item.all.size).to eq 2
+      end
     end
 
     context "create fail" do
       before do
-        post :create, params: {shop_id: shop, menu_id: menu,
-          item:{name: "new name1\r\n2new name\r\n"}}, xhr: true
+        post :create, params: {shop_id: shop, menu_id: menu, item_list: "new name1\r\n2new name\r\n"}, xhr: true
       end
       it "assigns @items" do
         expect(assigns(:items).map(&:name)).to eq ["new name1"]
