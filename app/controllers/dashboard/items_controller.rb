@@ -1,7 +1,7 @@
 class Dashboard::ItemsController < BaseDashboardController
   before_action :load_shop
   before_action :load_menu
-  before_action :load_item, except: [:new, :create]
+  before_action :load_item, only: [:destroy, :edit, :update]
 
   def destroy
     @success = false
@@ -11,16 +11,19 @@ class Dashboard::ItemsController < BaseDashboardController
   end
 
   def new
-    @item = @menu.items.build
     @shop = Shop.shop_include_menus(@shop.id).first
+    @destroy_all = params[:destroy_all]
+    @item_list = @menu.items if @destroy_all.present?
   end
 
   def create
     @success = false
-    if params[:item][:name].present?
+    @destroy_all = params[:destroy_all]
+    if params[:item_list].present?
       @items = []
       Item.transaction do
-        params[:item][:name].split("\r\n").each do |name|
+        @menu.items.destroy_all if @destroy_all.present?
+        params[:item_list].split("\r\n").each do |name|
           @items << @menu.items.create!(name: name)
         end
         @success = true

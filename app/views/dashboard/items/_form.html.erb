@@ -1,31 +1,4 @@
-<% if item.new_record? %>
-  <div class="row item_form">
-    <%= form_for [:dashboard, shop, menu, item], remote: true  do |f| %>
-      <div class="form-group">
-        <%= f.label :menu_id do %>
-          <%= t "new_menu.kind" %>
-          <span class="color-red">*</span>
-        <% end %>
-        <%= f.select :menu_id, shop.menus.collect{|menu| [t("kinds.#{menu.kind}"), menu.id]},
-          {},class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :name do %>
-          <%= t "new_menu.item_list" %>
-          <span class="color-red">*</span>
-        <% end %>
-        <%= f.text_area :name, placeholder: t("new_menu.item_list"),
-          rows: Settings.row_count_of_text_area, class: "form-control" %>
-      </div>
-      <div class="col-xs-12 button-group-form">
-        <%= link_to t("common.back_button"), :back,
-          class: "btn btn-default btn-back-to-shop form-button" %>
-        <%= f.submit yield(:submit_button),
-          class: "btn btn_add_to_cart btn-add padding-left-right-10 form-button" %>
-      </div>
-    <% end %>
-  </div>
-<% else %>
+<% if item.present? %>
   <div class="row item_form">
     <%= form_for [:dashboard, shop, menu, item], authenticity_token: true, remote: true  do |f| %>
       <div class="form-group">
@@ -40,6 +13,34 @@
         <%= link_to t("common.back_button"), :back,
           class: "btn btn-default btn-back-to-shop form-button" %>
         <%= f.submit yield(:submit_button),
+          class: "btn btn_add_to_cart btn-add padding-left-right-10 form-button" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row item_form">
+    <%= form_tag dashboard_shop_menu_item_list_path, method: :post, remote: true  do |f| %>
+      <div class="form-group">
+        <%= label_tag :menu_id do %>
+          <%= t "new_menu.kind" %>
+          <span class="color-red">*</span>
+        <% end %>
+        <%= select_tag :menu_id, options_for_select(shop.menus.map{|menu| [t("kinds.#{menu.kind}"), menu.id]}, menu.id),
+          class: "form-control", id: "item_menu_id", data: {destroy_all: is_destroy_all(@item_list)} %>
+      </div>
+        <%= hidden_field_tag :destroy_all, @destroy_all %>
+      <div class="form-group">
+        <%= label_tag :item_list do %>
+          <%= t "new_menu.item_list" %>
+          <span class="color-red">*</span>
+        <% end %>
+        <%= text_area_tag :item_list, load_item_list(@item_list), placeholder: t("new_menu.item_list"),
+          rows: Settings.row_count_of_text_area, class: "form-control" %>
+      </div>
+      <div class="col-xs-12 button-group-form">
+        <%= link_to t("common.back_button"), :back,
+          class: "btn btn-default btn-back-to-shop form-button" %>
+        <%= submit_tag yield(:submit_button),
           class: "btn btn_add_to_cart btn-add padding-left-right-10 form-button" %>
       </div>
     <% end %>

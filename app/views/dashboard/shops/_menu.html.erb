@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody class="item-list-in-menu">
-      <%= render menu.items %>
+      <%= render menu.items if menu.items.any? %>
     </tbody>
   </table>
 </div>
