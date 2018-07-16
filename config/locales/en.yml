@@ -42,6 +42,7 @@ en:
   order_success: " success"
   of: " of "
   review_message: "%{sender} has reviewed your %{title} post."
+  order_message: "You have been recieved an %{title} order from %{sender}"
   not_accept_to_domain: " not accepted into domain: "
   shop_request_to_domain_owner_shop: "Your shop "
   shop_request_to_domain_owner: " has just been accepted into the domain: "
@@ -355,6 +356,7 @@ en:
     danger:
       load_order: "Cannot find order. plz choose order! "
       load_items: "Cannot find order items"
+      load_post: "Cannot find post"
       create_domain: "You need to create a domain"
       admin:
         created_category: "Created category failed!"
@@ -575,6 +577,7 @@ en:
           show: "View"
           edit: "Edit"
           destroy: "Delete"
+          order_list: "View orders"
         create:
           new_post: "Hello Admin! Have a new post to approve"
     statistics:
@@ -1299,3 +1302,22 @@ en:
         choose_mode: "Choose a mode"
       most_review:
         most_review_posts: "Most reviewed Posts"
+    order_posts:
+      index:
+        order_owner: "Order owner"
+        quantity: "Quantity"
+        notes: "Notes"
+        status: "Status"
+        empty_list: "This post don't have any order yet"
+        filter_by_user: "Filter by user"
+        user_name: "User name"
+    orders:
+      index:
+        empty_list: "You don't have any order"
+        title: "Title"
+        image: "Image"
+        quantity: "Quantity"
+        notes: "Notes"
+        status: "Status"
+      orders_list:
+        cancel: "Cancel"

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :images, through: :post_images
   has_many :post_images
-
+  has_many :order_posts
   accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to :user

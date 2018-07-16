@@ -91,6 +91,12 @@
   </div>
   <div class="col-md-8 ads-content">
     <p class="ads-title"><%= @post.title %></p>
+    <div class="quick-order">
+      <button type="button" class="btn btn_add_to_cart btn-add" data-toggle="modal" data-target="#quick-order">
+        <span class="glyphicon glyphicon glyphicon-check"></span>
+          <%= t "cart_quick.order_now" %>
+      </button>
+    </div>
     <div class="share-post-buttons">
       <%= social_share_button_tag @post.title %>
     </div>
@@ -176,4 +182,5 @@
     </div>
   </div>
 </div>
+<%= render "quick_order" %>
 <%= render "sticky_box.js.erb" %>

@@ -1,0 +1,61 @@
+<div class="row back-to-posts">
+  <div class="col-md-12 text-left">
+    <%= link_to t(".back_to_posts"), domain_ads_posts_path(@domain),
+      class: "btn btn-success" %>
+  </div>
+</div>
+
+<% if @orders.present? %>
+  <div class="panel panel-default">
+    <div class="search_between">
+      <div class="choose-date-order">
+        <span class="order-span">
+          <%= t("start") %>
+        </span>
+        <%= text_field_tag :start_date, params[:start_date],
+          class: "form-control order-manager-datepicker
+          order-history-date order-history-start order-input",
+          placeholder: t("start") %>
+      </div>
+      <div class="choose-date-order">
+        <span class="order-span">
+          <%= t("end") %>
+        </span>
+        <%= text_field_tag :end_date, params[:end_date],
+          class: "form-control order-manager-datepicker
+          order-history-date order-history-end order-input",
+          placeholder: t("end") %>
+      </div>
+      <div class="radio-order">
+        <% Settings.filter_status_order_post.each do |key, value| %>
+          <%= label_tag "status_#{value}", class: "radio-inline",
+            for: "history_order_status_#{value}" do %>
+            <%= radio_button_tag :history_order_status, value, nil,
+              class: "order-history-status" %>
+            <%= t "all_status.#{value}" %>
+            <span class="span-radio-order"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="col-sm-1">id</th>
+        <th class="col-sm-2"><%= t ".title" %></th>
+        <th class="col-sm-2"><%= t ".image" %></th>
+        <th class="col-sm-1"><%= t ".quantity" %></th>
+        <th class="col-sm-4"><%= t ".notes" %></th>
+        <th class="col-sm-2"><%= t ".status" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "orders_list", collection: @orders, as: :order %>
+    </tbody>
+  </table>
+  <%= paginate @orders %>
+<% else %>
+  <div class="well text-center"><%= t ".empty_list" %></div>
+<% end %>

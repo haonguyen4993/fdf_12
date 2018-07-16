@@ -188,6 +188,15 @@
                   <% end %>
                 </li>
 
+                <% if in_url? domain_ads_posts_url(@domain) %>
+                  <li role="presentation">
+                    <%= link_to ads_post_orders_path do %>
+                      <i class="fa fa-list-ol icon-menu"></i>
+                      <span><%= t "common.your_orders" %></span>
+                    <% end %>
+                  </li>
+                <% end %>
+
                 <li role="separator" class="divider"></li>
                 <% if current_user.shops.any? %>
                   <li role="separator" class="divider"></li>

@@ -1,0 +1,20 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= order.post.title %></td>
+  <td><%= image_tag order.post.images.first.image_url, class: "img-post" %></td>
+  <td><%= order.quantity %></td>
+  <td><%= order.notes %></td>
+  <td class="order-status">
+    <span class="label label-<%= order.status %>">
+      <%= t "all_status.#{order.status}" %>
+    </span>
+  </td>
+  <td class="order-actions">
+    <% if order.pending? %>
+      <%= link_to ads_post_order_post_path(order.post.id, order),
+        method: :delete, class: "label label-danger" do %>
+        <i class="fa fa-times"></i> <%= t ".cancel" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

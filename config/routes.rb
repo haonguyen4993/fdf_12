@@ -70,6 +70,14 @@ Rails.application.routes.draw do
       resources :posts
     end
   end
+
+  namespace :ads do
+    resources :posts do
+      resources :order_posts, only: [:index, :create, :destroy]
+    end
+    get "/orders", to: "orders#index", as: :post_orders
+  end
+
   resources :domains do
     resources :products
     resources :shops

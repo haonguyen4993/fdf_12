@@ -1,0 +1,55 @@
+<div class="modal fade quick-order" id="quick-order">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal_header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title modal_text_header"><%= t "quick_order_shop" %></h4>
+      </div>
+      <%= form_for([:ads, @post, @order_post]) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <div class="modal-body">
+          <div class="row modal_item">
+            <div class="col-md-4">
+              <%= image_tag @post.images.first.image_url, id: "modal_image",
+              class: "image" %>
+            </div>
+            <div class="col-md-8">
+              <div class="name" id="modal_name"></div>
+              <br>
+              <div class="info">
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td><%= t ".post_title" %></td>
+                      <td><%= @post.title %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t "cart_quick.modal.quantity" %></td>
+                      <td>
+                        <%= number_field(:order_post, :quantity,
+                          in: Settings.orders.min_quantity..Settings.orders.max_quantity,
+                          step: Settings.number_field.step,
+                          value: Settings.number_field.default) %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <strong><%= t"cart_quick.modal.note" %></strong>
+          <%= f.text_area :notes, class: "note note-order" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            <%= t "cancel" %>
+          </button>
+          <%= f.submit t("cart_quick.finish"), class: "btn btn btn_add_to_cart btn-add" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

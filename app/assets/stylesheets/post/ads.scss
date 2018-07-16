@@ -520,6 +520,7 @@ $lighten-gray: #ddd;
   font-weight: bold;
   text-transform: uppercase;
   display: inline-block;
+  line-height: 40px;
 }
 .ads-price{
   font-size: 20px;
@@ -799,6 +800,14 @@ $lighten-gray: #ddd;
     float: right;
     margin-top: 5px;
   }
+  .quick-order {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .btn-add {
+    color: white;
+    margin-bottom: 10px;
+  }
 }
 
 .post-onwer-info {
@@ -813,4 +822,30 @@ $lighten-gray: #ddd;
   top: 50px;
   background: white;
   z-index: 99;
+}
+
+.quick-order {
+  .note {
+    padding: 15px;
+  }
+}
+
+.order-posts-list {
+  .order-status {
+    .label {
+      text-transform: capitalize;
+    }
+  }
+  .order-actions {
+    .label {
+      margin-right: 5px;
+    }
+  }
+}
+.img-post {
+  width: 100%;
+  height: auto;
+}
+.back-to-posts {
+  margin-bottom: 15px;
 }

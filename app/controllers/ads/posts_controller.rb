@@ -47,6 +47,7 @@ class Ads::PostsController < ApplicationController
   def show
     @post_support = Supports::Ads::PostSupport.new @post, current_user
     @review = @post.reviews.build
+    @order_post = OrderPost.new
   end
 
   def edit

@@ -4,8 +4,11 @@ common:
   posts_per_page: 4
   most_review_posts_per_page: 8
   shops_per_page: 9
+  order_per_page: 10
 orders:
   status: {open: "open", deliver: "deliver", close: "close"}
+  min_quantity: 0
+  max_quantity: 500
 pictures:
   upload_dir: "uploads"
   accepted_files: "image/jpeg, image/gif, image/png"
@@ -44,6 +47,11 @@ filter_status_order:
   accepted: "accepted"
   rejected: "rejected"
   done: "done"
+filter_status_order_post:
+  all: "all"
+  pending: "pending"
+  accepted: "accepted"
+  rejected: "rejected"
 check_order: 2
 start_count_order: 0
 row_header: 1
@@ -225,3 +233,6 @@ reports:
   date_format: "%H:%M %d-%m-%Y"
 filter:
   most_review: "most_review"
+number_field:
+  step: 1
+  default: 1

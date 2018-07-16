@@ -43,6 +43,7 @@ ja:
   order_success: " 成功します"
   of: " の "
   review_message: "%{sender} has reviewed your %{title} post."
+  order_message: "You have been recieved an %{title} order from %{sender}"
   not_accept_to_domain: " ドメインに受け入れられません: "
   shop_request_to_domain_owner_shop: "店 "
   shop_request_to_domain_owner: " ドメインに合意されています: "
@@ -352,6 +353,7 @@ ja:
     danger:
       load_order: "ラインを見つけることができません。選択しなおしてください。"
       load_items: "製品が見つけることができません。"
+      load_post: "Cannot find post"
       create_domain: "あなたはドメインを作成してください"
       admin:
         created_category: "失敗。もう一度やり直してください。"
@@ -568,6 +570,7 @@ ja:
           show: "View"
           edit: "Edit"
           destroy: "Delete"
+          order_list: "View orders"
         create:
           new_post: "Hello Admin! Have a new post to browse"
     statistics:
@@ -1309,3 +1312,22 @@ ja:
         choose_mode: "Choose a mode"
       most_review:
         most_review_posts: "Most reviewed Posts"
+    order_posts:
+      index:
+        order_owner: "Order owner"
+        quantity: "Quantity"
+        notes: "Notes"
+        status: "Status"
+        empty_list: "This post don't have any order yet"
+        filter_by_user: "Filter by user"
+        user_name: "User name"
+    orders:
+      index:
+        empty_list: "You don't have any order"
+        title: "Title"
+        image: "Image"
+        quantity: "Quantity"
+        notes: "Notes"
+        status: "Status"
+      orders_list:
+        cancel: "Cancel"

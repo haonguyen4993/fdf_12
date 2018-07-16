@@ -45,6 +45,8 @@ class Event < ApplicationRecord
       check_message_post
     when Review.name
       message
+    when OrderPost.name
+      message
     end
   end
 
@@ -76,6 +78,9 @@ class Event < ApplicationRecord
     when Review.name
       review = Review.find_by id: eventable_id
       review.user.avatar.url
+    when OrderPost.name
+      order = OrderPost.find_by id: eventable_id
+      order.user.avatar.url
     end
   end
 
@@ -146,6 +151,8 @@ class Event < ApplicationRecord
       return true if Post.find_by(id: eventable_id)
     when Review.name
       return true if Review.find_by(id: eventable_id)
+    when OrderPost.name
+      return true if OrderPost.find_by(id: eventable_id)
     end
   end
 

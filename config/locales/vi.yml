@@ -82,6 +82,7 @@ vi:
   order_success: " thành công"
   of: " của "
   review_message: "%{sender} đã bình luận bài viết %{title} của bạn."
+  order_message: "Bạn vừa nhận được đơn hàng %{title} từ %{sender}"
   not_accept_to_domain: " của bạn không được chấp nhận vào miền: "
   shop_request_to_domain_owner_shop: "Cửa hàng "
   shop_request_to_domain_owner: " của bạn vừa được đồng ý vào miền: "
@@ -399,6 +400,7 @@ vi:
     danger:
       load_order: "Không thể tìm thấy đơn hàng. Vui lòng chọn lại! "
       load_items: "Không tìm thấy sản phẩm"
+      load_post: "Không tìm thấy tin rao"
       create_domain: "Bạn phải tạo một miền"
       admin:
         created_category: "Tạo mới thất bại. Vui lòng thử lại!"
@@ -616,6 +618,7 @@ vi:
           show: "Xem"
           edit: "Sửa"
           destroy: "Xóa"
+          order_list: "Xem đơn hàng"
         create:
           new_post: "Chào Admin! Có bài đăng mới cần duyệt"
     statistics:
@@ -1357,3 +1360,23 @@ vi:
         choose_mode: "Chọn hình thức"
       most_review:
         most_review_posts: "Tin rao được bình luận nhiều"
+    order_posts:
+      index:
+        order_owner: "Người đặt"
+        quantity: "Số lượng"
+        notes: "Ghi chú"
+        status: "Trạng thái"
+        empty_list: "Chưa có đơn hàng nào"
+        filter_by_user: "Lọc theo người dùng"
+        user_name: "Nhập tên"
+    orders:
+      index:
+        empty_list: "Chưa có đơn hàng nào"
+        title: "Tên"
+        image: "Hình ảnh"
+        quantity: "Số lượng"
+        notes: "Ghi chú"
+        status: "Trạng thái"
+        back_to_posts: "Tiếp tục xem tin rao"
+      orders_list:
+        cancel: "Hủy đơn hàng"

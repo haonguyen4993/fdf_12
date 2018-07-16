@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507114117) do
+ActiveRecord::Schema.define(version: 20180716084412) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -151,6 +151,20 @@ ActiveRecord::Schema.define(version: 20180507114117) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "order_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "quantity"
+    t.text     "notes",      limit: 65535
+    t.integer  "status",                   default: 0
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_order_posts_on_deleted_at", using: :btree
+    t.index ["post_id"], name: "index_order_posts_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_order_posts_on_user_id", using: :btree
   end
 
   create_table "order_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -467,6 +481,8 @@ ActiveRecord::Schema.define(version: 20180507114117) do
   add_foreign_key "coupons", "shops"
   add_foreign_key "coupons", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "order_posts", "posts"
+  add_foreign_key "order_posts", "users"
   add_foreign_key "order_products", "coupons"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
